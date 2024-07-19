@@ -25,4 +25,5 @@ type MessageSocketBody struct {
 const (
 	UserCreatedTopic    = "user.created"
 	MessageCreatedTopic = "message.created"
+	UserQuery           = "user.query"
 )

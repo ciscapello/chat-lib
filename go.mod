@@ -1,4 +1,4 @@
-module github.com/ciscapello/lib
+module github.com/ciscapello/chat-lib
 
 go 1.22.3
 
