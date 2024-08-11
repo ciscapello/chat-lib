@@ -60,8 +60,13 @@ func (client *RabbitMQClient) Publish(queueName string, message []byte) error {
 
 // ConsumeMessages начинает потребление сообщений из указанной очереди
 func (client *RabbitMQClient) ConsumeMessages(queueName string, handler func([]byte) error) error {
+	queue, err := client.DeclareQueue(queueName)
+	if err != nil {
+		return err
+	}
+
 	msgs, err := client.channel.Consume(
-		queueName,
+		queue.Name,
 		"",    // consumer
 		true,  // auto-ack
 		false, // exclusive
