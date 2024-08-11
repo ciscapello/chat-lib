@@ -34,7 +34,7 @@ func NewRabbitMQClient(url string) (*RabbitMQClient, error) {
 func (client *RabbitMQClient) DeclareQueue(queueName string) (amqp.Queue, error) {
 	queue, err := client.channel.QueueDeclare(
 		queueName,
-		true,  // durable
+		false, // durable
 		false, // delete when unused
 		false, // exclusive
 		false, // no-wait
